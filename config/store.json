@@ -1,0 +1,159 @@
+﻿{
+    "storeName":  "Happy Burger Colônia",
+    "storeSlug":  "happy-burguer-colonia",
+    "orderPrefix":  "HBC",
+    "whatsappNumber":  "5532999999999",
+    "currency":  "BRL",
+    "deliveryFee":  0,
+    "deliveryRegions":  [
+                            {
+                                "id":  "regiao-fabricas",
+                                "name":  "Região Fábricas",
+                                "fee":  8
+                            },
+                            {
+                                "id":  "aguas-santas",
+                                "name":  "Águas Santas",
+                                "fee":  5
+                            },
+                            {
+                                "id":  "bom-pastor",
+                                "name":  "Bom Pastor",
+                                "fee":  10
+                            },
+                            {
+                                "id":  "bonfim",
+                                "name":  "Bonfim",
+                                "fee":  10
+                            },
+                            {
+                                "id":  "cesar-de-pina",
+                                "name":  "César de Pina",
+                                "fee":  8
+                            },
+                            {
+                                "id":  "cidade-nova",
+                                "name":  "Cidade Nova",
+                                "fee":  10
+                            },
+                            {
+                                "id":  "cidade-verde",
+                                "name":  "Cidade Verde",
+                                "fee":  8
+                            },
+                            {
+                                "id":  "cohab",
+                                "name":  "COHAB",
+                                "fee":  8
+                            },
+                            {
+                                "id":  "colinas",
+                                "name":  "Colinas",
+                                "fee":  10
+                            },
+                            {
+                                "id":  "colonia-do-marcal",
+                                "name":  "Colônia do Marçal",
+                                "fee":  5
+                            },
+                            {
+                                "id":  "giarola",
+                                "name":  "Giarola",
+                                "fee":  5
+                            },
+                            {
+                                "id":  "jardim-das-acacias",
+                                "name":  "Jardim das Acácias",
+                                "fee":  15
+                            },
+                            {
+                                "id":  "mediacao-uniptan",
+                                "name":  "Mediação Uniptan",
+                                "fee":  10
+                            },
+                            {
+                                "id":  "motosinhos",
+                                "name":  "Motosinhos",
+                                "fee":  8
+                            },
+                            {
+                                "id":  "outros-bairros",
+                                "name":  "Outros bairros",
+                                "fee":  15
+                            },
+                            {
+                                "id":  "pio-xii",
+                                "name":  "Pio XII",
+                                "fee":  10
+                            },
+                            {
+                                "id":  "pos-ctan",
+                                "name":  "Pós CTAN",
+                                "fee":  10
+                            },
+                            {
+                                "id":  "recreio-das-alterosas",
+                                "name":  "Recreio das Alterosas",
+                                "fee":  5
+                            },
+                            {
+                                "id":  "regiao-centro",
+                                "name":  "Região Centro",
+                                "fee":  10
+                            },
+                            {
+                                "id":  "rio-acima",
+                                "name":  "Rio Acima",
+                                "fee":  15
+                            },
+                            {
+                                "id":  "santa-cruz",
+                                "name":  "Santa Cruz",
+                                "fee":  8
+                            },
+                            {
+                                "id":  "sao-caetano",
+                                "name":  "São Caetano",
+                                "fee":  10
+                            },
+                            {
+                                "id":  "sao-judas-tadeu",
+                                "name":  "São Judas Tadeu",
+                                "fee":  8
+                            },
+                            {
+                                "id":  "senhor-dos-montes",
+                                "name":  "Senhor dos Montes",
+                                "fee":  8
+                            },
+                            {
+                                "id":  "solar-da-serra",
+                                "name":  "Solar da Serra",
+                                "fee":  5
+                            },
+                            {
+                                "id":  "tejuco",
+                                "name":  "Tejuco",
+                                "fee":  10
+                            },
+                            {
+                                "id":  "trevo-eloi",
+                                "name":  "Trevo Eloi",
+                                "fee":  10
+                            },
+                            {
+                                "id":  "vila-belizario-caieiras",
+                                "name":  "Vila Belizário / Caieiras",
+                                "fee":  8
+                            },
+                            {
+                                "id":  "vila-santa-terezinha",
+                                "name":  "Vila Santa Terezinha",
+                                "fee":  8
+                            }
+                        ],
+    "acceptsDelivery":  true,
+    "acceptsPickup":  true,
+    "businessHoursNote":  "Funcionamento: 17:00 às 23:20, todos os dias exceto segunda-feira.",
+    "logoPath":  "/assets/happy-burger-logo.png"
+}

@@ -1,0 +1,502 @@
+{
+  "categories": [
+    {
+      "id": "happy-artesanais",
+      "name": "Happy Artesanais",
+      "items": [
+        {
+          "id": "happy-artesanal-11",
+          "name": "(11) Happy Clássico",
+          "description": "Pão, carne artesanal, salada, molho da casa e batata frita.",
+          "price": 25
+        },
+        {
+          "id": "happy-artesanal-12",
+          "name": "(12) Happy Gourmet catupiry",
+          "description": "Pão, carne artesanal, catupiry, salada, molho da casa e batata frita.",
+          "price": 31
+        },
+        {
+          "id": "happy-artesanal-13",
+          "name": "(13) Happy CHEESE CLASSICO",
+          "description": "Pão, carne da casa 150g, mussarela, cebola roxa, salada, fritas e molho da casa.",
+          "price": 31
+        },
+        {
+          "id": "happy-artesanal-14",
+          "name": "(14) Happy Cheese Bacon Classico",
+          "description": "Pão, carne da casa 150g, mussarela, bacon, picles, salada, fritas e molho da casa.",
+          "price": 33
+        },
+        {
+          "id": "happy-artesanal-15",
+          "name": "(15) Happy Chesse Egg Bacon Classico",
+          "description": "Pão, carne artesanal, ovo, bacon, mussarela, picles, salada, molho da casa e fritas.",
+          "price": 35
+        },
+        {
+          "id": "happy-artesanal-16",
+          "name": "(16) Happy Cheese Calabresa Classico",
+          "description": "Pão, carne artesanal, calabresa, mussarela, picles, salada, molho da casa e fritas.",
+          "price": 34
+        },
+        {
+          "id": "happy-artesanal-17",
+          "name": "(17) Happy Cheese Egg Calabresa Classico",
+          "description": "Pão, carne artesanal, calabresa, ovo, mussarela, picles, salada, molho da casa e fritas.",
+          "price": 35
+        },
+        {
+          "id": "happy-artesanal-18",
+          "name": "(18) Happy Cheddar Burger Gourmet",
+          "description": "Pão, carne da casa 150g, queijo cheddar, bacon, ovo, presunto, cebola caramelizada, salada, fritas e molho da casa.",
+          "price": 37
+        },
+        {
+          "id": "happy-artesanal-19",
+          "name": "(19) Happy Cheddar Duplo Gourmet",
+          "description": "Pão, 2 carnes da casa 150g, dobro de queijo cheddar, dobro de bacon, 2 mussarela, ovo, picles, cebola caramelizada, fritas e molho da casa.",
+          "price": 43
+        },
+        {
+          "id": "happy-artesanal-20",
+          "name": "(20) Happy Gorgonzola Goumet",
+          "description": "Pão, carne da casa 150g, mussarela, bacon, cebola roxa, gorgonzola, salada, fritas e molho da casa.",
+          "price": 34
+        },
+        {
+          "id": "happy-artesanal-21",
+          "name": "(21) Happy Big Gourmet",
+          "description": "Pão brioche gergelim, 2 carnes da casa 150g, mussarela, queijo prato, presunto, catupiry, ovo, picles, cebola roxa, salada, fritas e molho da casa.",
+          "price": 45
+        },
+        {
+          "id": "happy-artesanal-22",
+          "name": "(22) Happy Mega Catupiry Gourmet",
+          "description": "Pão, 2 carnes da casa 150g, bacon, catupiry, molho, picles, molho da casa e salada.",
+          "price": 44
+        },
+        {
+          "id": "happy-artesanal-23",
+          "name": "(23) Happy Mega Cheddar Goumet",
+          "description": "Pão brioche, 2 carnes da casa 150g, bacon, queijo cheddar, picles, cebola caramelizada, molho da casa e salada.",
+          "price": 45
+        },
+        {
+          "id": "happy-artesanal-24",
+          "name": "(24) Happy Chicken Bacon Classico",
+          "description": "Pão brioche, frango artesanal, bacon, mussarela, salada, molho tasty e molho da casa.",
+          "price": 36
+        },
+        {
+          "id": "happy-artesanal-25",
+          "name": "(25) Happy Picanha",
+          "description": "Pão, carne artesanal de picanha, bacon, queijo prato, molho barbecue, cebola roxa, salada e molho da casa.",
+          "price": 39
+        },
+        {
+          "id": "happy-artesanal-26",
+          "name": "(26) Happy Costela",
+          "description": "Pão, carne artesanal de costela, bacon, queijo prato, cebola roxa, barbecue, salada e molho da casa.",
+          "price": 39
+        },
+        {
+          "id": "happy-artesanal-27",
+          "name": "(27) Happy Australiano",
+          "description": "Ingredientes a confirmar.",
+          "price": 32
+        },
+        {
+          "id": "happy-artesanal-29",
+          "name": "(29) Happy Catupiry Empanado Gourmet",
+          "description": "Pão brioche, carne artesanal de 140g, catupiry empanado, bacon, cebola roxa, salada, batata frita e molho.",
+          "price": 37
+        },
+        {
+          "id": "happy-artesanal-30",
+          "name": "(30) Happy cheddar empanado Goumet",
+          "description": "Pão brioche, carne artesanal, cheddar empanado, bacon, cebola roxa, salada, batata frita e molho da casa.",
+          "price": 37
+        },
+        {
+          "id": "happy-artesanal-31",
+          "name": "(31) Happy onion rings gourmet",
+          "description": "Pão brioche, carne artesanal 140g, queijo prato, cebola empanada, molho barbecue, salada, batata frita e molho da casa.",
+          "price": 36
+        },
+        {
+          "id": "happy-artesanal-33",
+          "name": "(33) X-Frango Catupiry",
+          "description": "Pão brioche, frango desfiado, catupiry, mussarela, milho e salada.",
+          "price": 26
+        }
+      ]
+    },
+    {
+      "id": "happy-tradicionais",
+      "name": "Happy tradicionais",
+      "items": [
+        {
+          "id": "happy-tradicional-01",
+          "name": "(1) Happy Burguer",
+          "description": "Pão brioche, 2 carnes, milho, salada, fritas ou palha e molho da casa.",
+          "price": 21
+        },
+        {
+          "id": "happy-tradicional-02",
+          "name": "(2) Happy Burger",
+          "description": "Pão, 2 carnes, milho, mussarela, salada, fritas ou palha e molho da casa.",
+          "price": 22
+        },
+        {
+          "id": "happy-tradicional-03",
+          "name": "(3) Happy Cheese Bacon",
+          "description": "Pão, 2 carnes, milho, mussarela, bacon, salada, fritas ou palha e molho da casa.",
+          "price": 24
+        },
+        {
+          "id": "happy-tradicional-04",
+          "name": "(4) Happy Cheese Egg Bacon",
+          "description": "Pão, 2 carnes, milho, mussarela, bacon, ovo, salada, batata frita ou palha e molho da casa.",
+          "price": 26
+        },
+        {
+          "id": "happy-tradicional-05",
+          "name": "(5) Happy Cheese Bacon Especial",
+          "description": "Pão, 2 carnes, milho, mussarela, presunto, bacon, ovo, salada, batata frita ou palha e molho da casa.",
+          "price": 27
+        },
+        {
+          "id": "happy-tradicional-06",
+          "name": "(6) Happy Cheese Calabresa",
+          "description": "Pão, 2 carnes, milho, mussarela, calabresa, salada, batata frita ou palha e molho da casa.",
+          "price": 24
+        },
+        {
+          "id": "happy-tradicional-07",
+          "name": "(7) Happy Cheese Egg Calabresa",
+          "description": "Pão, 2 carnes, milho, mussarela, calabresa, ovo, salada, batata frita ou palha e molho da casa.",
+          "price": 26
+        },
+        {
+          "id": "happy-tradicional-08",
+          "name": "(8) Happy Cheese Egg Calabresa Especial",
+          "description": "Pão, 2 carnes, milho, mussarela, calabresa, presunto, ovo, salada, batata frita ou palha e molho da casa.",
+          "price": 27
+        },
+        {
+          "id": "happy-tradicional-09",
+          "name": "(9) Happy Cheese Tudo",
+          "description": "Pão, 2 carnes, milho, mussarela, calabresa, bacon, ovo, presunto, salada, batata frita ou palha e molho da casa.",
+          "price": 30
+        },
+        {
+          "id": "happy-tradicional-10",
+          "name": "(10) Happy Cheddar Burguer",
+          "description": "Pão brioche, 2 carnes, cheddar cremoso, cebola caramelizada, batata frita ou palha e molho especial da casa.",
+          "price": 23
+        }
+      ]
+    },
+    {
+      "id": "happy-frango",
+      "name": "Happy frango",
+      "items": [
+        {
+          "id": "happy-frango-34",
+          "name": "(34) Happy Burguer",
+          "description": "Pão brioche, 2 carnes de frango, milho, salada, batata frita ou palha e molho da casa.",
+          "price": 21
+        },
+        {
+          "id": "happy-frango-35",
+          "name": "(35) Happy cheese burguer",
+          "description": "Pão brioche, carnes de frango, mussarela, milho, salada, batata frita ou palha e molho da casa.",
+          "price": 22
+        },
+        {
+          "id": "happy-frango-36",
+          "name": "(36) happy cheese bacon burguer",
+          "description": "Pão brioche, 2 carnes de frango, mussarela, bacon, milho, salada, batata frita ou palha e molho especial da casa.",
+          "price": 24
+        },
+        {
+          "id": "happy-frango-37",
+          "name": "(37) happy cheese egg bacon burger",
+          "description": "Pão brioche, 2 carnes de frango, mussarela, ovo, bacon, milho, salada, batata frita ou palha e molho especial da casa.",
+          "price": 26
+        },
+        {
+          "id": "happy-frango-38",
+          "name": "(38) Happy cheese egg bacon especial",
+          "description": "Pão brioche, 2 carnes de frango, mussarela, ovo, presunto, milho, salada, batata frita ou palha.",
+          "price": 27
+        },
+        {
+          "id": "happy-frango-39",
+          "name": "(39) happy cheese calabresa burger",
+          "description": "Pão brioche, 2 carnes de frango, mussarela, calabresa, milho, salada, batata frita ou palha e molho especial da casa.",
+          "price": 24
+        },
+        {
+          "id": "happy-frango-40",
+          "name": "(40) happy cheese egg calabresa burger",
+          "description": "Pão brioche, 2 carnes de frango, mussarela, ovo, calabresa, milho, salada, batata frita ou palha e molho especial da casa.",
+          "price": 27
+        },
+        {
+          "id": "happy-frango-41",
+          "name": "(41) Happy cheese egg calabresa especial",
+          "description": "Pão brioche, 2 carnes de frango, mussarela, ovo, calabresa, presunto, milho, salada, batata frita ou palha e molho especial da casa.",
+          "price": 28
+        },
+        {
+          "id": "happy-frango-42",
+          "name": "(42) Happy tudo burguer",
+          "description": "Pão brioche, 2 carnes de frango, mussarela, ovo, bacon, calabresa, presunto, milho, salada e molho da casa.",
+          "price": 30
+        }
+      ]
+    },
+    {
+      "id": "pizzas",
+      "name": "Pizzas",
+      "items": [
+        {
+          "id": "pizza-portuguesa",
+          "name": "Pizza a Portuguesa",
+          "description": "Molho de tomate, presunto, mussarela, ovo, milho, ervilha, cebola, azeitona e tomate. Retirada sempre com no mínimo 45 min.",
+          "price": 52
+        },
+        {
+          "id": "pizza-bacon",
+          "name": "Pizza Bacon",
+          "description": "Molho de tomate, mussarela, bacon e cebola. Retirada sempre com no mínimo 45 min.",
+          "price": 52
+        },
+        {
+          "id": "pizza-calabresa",
+          "name": "Pizza Calabresa",
+          "description": "Molho de tomate, mussarela, calabresa, cebola e orégano. Retirada sempre com no mínimo 45 min.",
+          "price": 52
+        },
+        {
+          "id": "pizza-frango-catupiry",
+          "name": "Pizza de Frango com Catupiry",
+          "description": "Molho de tomate, frango desfiado e catupiry original. Retirada sempre com no mínimo 45 min.",
+          "price": 58
+        },
+        {
+          "id": "pizza-happy-burger",
+          "name": "Pizza Happy Burger",
+          "description": "Molho de tomate, presunto, mussarela, palmito, milho, bacon, calabresa, tomate, cebola e azeitona. Retirada sempre com no mínimo 45 min.",
+          "price": 62
+        },
+        {
+          "id": "pizza-marguerita",
+          "name": "Pizza Marguerita",
+          "description": "Molho de tomate, mussarela, manjericão, tomate e orégano. Retirada sempre com no mínimo 45 min.",
+          "price": 52
+        },
+        {
+          "id": "pizza-mussarela",
+          "name": "pizza mussarela",
+          "description": "Molho de tomate, mussarela e orégano.",
+          "price": 50
+        },
+        {
+          "id": "pizza-quatro-queijos",
+          "name": "Pizza Quatro Queijos",
+          "description": "Mussarela, provolone, gorgonzola e catupiry Original. Retirada sempre com no mínimo 45 min.",
+          "price": 58
+        }
+      ]
+    },
+    {
+      "id": "caldos",
+      "name": "Caldos",
+      "items": [
+        {
+          "id": "feijao-amigo",
+          "name": "Feijão amigo",
+          "description": "Delicioso caldo de feijão amigo com bacon e calabresa.",
+          "price": 20
+        }
+      ]
+    },
+    {
+      "id": "petiscos",
+      "name": "Petiscos",
+      "items": [
+        {
+          "id": "petisco-contra-file",
+          "name": "Contra filé",
+          "description": "500g de contra filé, 500g de fritas, mussarela, cebola e tomate.",
+          "price": 85
+        },
+        {
+          "id": "petisco-file-frango-milanesa-gorgonzola",
+          "name": "Filé de Frango a Milanesa ao Molho Gorgonzola",
+          "description": "500g de filé de frango, molho gorgonzola.",
+          "price": 52
+        },
+        {
+          "id": "petisco-file-frango-fritas",
+          "name": "File de Frango com Fritas",
+          "description": "500g de filé de frango, 500g de fritas, mussarela, cebola e tomate.",
+          "price": 52
+        },
+        {
+          "id": "petisco-file-tilapia",
+          "name": "File de Tilapia",
+          "description": "500g de filé de tilápia e molho tártaro.",
+          "price": 50
+        },
+        {
+          "id": "petisco-fritas-catupiry",
+          "name": "Fritas com Catupiry",
+          "description": "500g de fritas, catupiry cremoso original e bacon.",
+          "price": 50
+        },
+        {
+          "id": "petisco-fritas-cheddar-bacon",
+          "name": "Fritas com Cheddar e Bacon",
+          "description": "500g de fritas, cheddar cremoso e bacon.",
+          "price": 50
+        },
+        {
+          "id": "petisco-fritas-queijo",
+          "name": "Fritas com Queijo",
+          "description": "500g de fritas e mussarela.",
+          "price": 40
+        },
+        {
+          "id": "petisco-happy-fritas",
+          "name": "Happy Fritas",
+          "description": "500g de batatas.",
+          "price": 35
+        },
+        {
+          "id": "petisco-happy-fritas-queijo-bacon",
+          "name": "Happy Fritas Queijo e Bacon",
+          "description": "500g de batatas, mussarela e bacon.",
+          "price": 46
+        },
+        {
+          "id": "petisco-linguica-mandioca",
+          "name": "Linguiça com Mandioca",
+          "description": "500g de linguiça, 500g de fritas ou mandioca frita.",
+          "price": 50
+        },
+        {
+          "id": "petisco-lombo-mandioca",
+          "name": "Lombo com Mandioca",
+          "description": "500g de lombo suíno, 500g de mandioca frita, cebola e tomate.",
+          "price": 52
+        },
+        {
+          "id": "petisco-onion-rings",
+          "name": "Onion rings",
+          "description": "500g de anéis de cebola e molho barbecue.",
+          "price": 36
+        },
+        {
+          "id": "petisco-trio-happy",
+          "name": "Trio Happy",
+          "description": "500g de linguiça, 500g de torresmo, 500g de fritas ou mandioca.",
+          "price": 75
+        }
+      ]
+    },
+    {
+      "id": "bebidas",
+      "name": "Bebidas",
+      "items": [
+        {
+          "id": "bebida-coca-cola-350ml",
+          "name": "Coca-cola 350ml",
+          "description": "",
+          "price": 6
+        },
+        {
+          "id": "bebida-coca-cola-600ml",
+          "name": "Coca-cola 600ml",
+          "description": "",
+          "price": 9
+        },
+        {
+          "id": "bebida-coca-cola-zero-350ml",
+          "name": "Coca-cola zero 350ml",
+          "description": "",
+          "price": 6
+        },
+        {
+          "id": "bebida-coca-cola-zero-600ml",
+          "name": "Coca-cola zero 600ml",
+          "description": "",
+          "price": 9
+        },
+        {
+          "id": "bebida-fanta-uva-350ml",
+          "name": "Fanta uva 350ml",
+          "description": "",
+          "price": 6
+        },
+        {
+          "id": "bebida-fanta-uva-600ml",
+          "name": "Fanta uva 600ml",
+          "description": "",
+          "price": 9
+        },
+        {
+          "id": "bebida-fanta-laranja-350ml",
+          "name": "Fanta laranja 350ml",
+          "description": "",
+          "price": 6
+        },
+        {
+          "id": "bebida-fanta-laranja-600ml",
+          "name": "Fanta laranja 600ml",
+          "description": "",
+          "price": 9
+        },
+        {
+          "id": "bebida-guarana-350ml",
+          "name": "Guaraná 350ml",
+          "description": "",
+          "price": 6
+        },
+        {
+          "id": "bebida-guarana-zero-350ml",
+          "name": "Guaraná zero 350ml",
+          "description": "",
+          "price": 6
+        },
+        {
+          "id": "bebida-guarana-600ml",
+          "name": "Guaraná 600ml",
+          "description": "",
+          "price": 9
+        },
+        {
+          "id": "bebida-guarana-zero-600ml",
+          "name": "Guaraná zero 600ml",
+          "description": "",
+          "price": 9
+        },
+        {
+          "id": "bebida-sprite-350ml",
+          "name": "Sprite 350ml",
+          "description": "",
+          "price": 6
+        },
+        {
+          "id": "bebida-sprite-600ml",
+          "name": "Sprite 600ml",
+          "description": "",
+          "price": 9
+        }
+      ]
+    }
+  ]
+}
