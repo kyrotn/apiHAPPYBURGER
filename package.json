@@ -1,15 +1,8 @@
-{
-  "name": "happy-burguer-colonia-pedidos",
-  "version": "0.1.0",
-  "private": true,
-  "description": "Sistema de pedidos e impressao automatica para Happy Burguer Colonia.",
-  "type": "commonjs",
-  "engines": {
-    "node": ">=18.18"
-  },
-  "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js",
-    "check": "node --check server.js"
-  }
-}
+PORT=3030
+STORE_TOKEN=COLOQUE_O_CODIGO_DO_PAINEL
+SUPABASE_URL=https://SEU-PROJETO.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=COLE_AQUI_A_SERVICE_ROLE_KEY
+SUPABASE_ORDERS_TABLE=happy_orders
+SUPABASE_SETTINGS_TABLE=happy_store_settings
+STORE_TIME_ZONE=America/Sao_Paulo
+ORDER_RESET_HOUR=16
