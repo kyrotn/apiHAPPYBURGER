@@ -141,7 +141,9 @@ const server = http.createServer(async (req, res) => {
       }
 
       const orders = await readOrders();
-      const pending = orders.filter((order) => shouldPrintOrder(order));
+      const pending = orders
+        .filter((order) => shouldPrintOrder(order))
+        .map(prepareOrderForPrintAgent);
       sendJson(res, 200, { orders: pending });
       return;
     }
@@ -512,6 +514,21 @@ function shouldPrintOrder(order) {
   return normalizeOrderStatus(order.status) === "new";
 }
 
+function prepareOrderForPrintAgent(order) {
+  if (order.printStatus !== "pending" || !order.reprintRequestedAt) {
+    return order;
+  }
+
+  // Older Kyro Agent versions only print orders whose status is "new".
+  // Keep the real workflow status in storage and normalize it only in this response.
+  return {
+    ...order,
+    status: "new",
+    statusLabel: orderStatusLabels.new,
+    printedAt: null
+  };
+}
+
 async function createOrder(payload) {
   const orders = await readOrders();
   const sequence = getNextSequence(orders);
@@ -798,9 +815,14 @@ function buildWhatsappText(order) {
 
 function formatDateTime(isoDate) {
   return new Intl.DateTimeFormat("pt-BR", {
-    dateStyle: "short",
-    timeStyle: "short"
-  }).format(new Date(isoDate));
+    timeZone: cashWindowConfig.timeZone,
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23"
+  }).format(new Date(isoDate)).replace(",", "");
 }
 
 function center(text, width) {
