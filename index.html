@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel | Happy Burger Colônia</title>
+  <meta name="description" content="Painel administrativo do Happy Burger Colônia.">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./admin.css">
+</head>
+<body class="admin-page">
+  <header class="admin-header">
+    <div class="admin-brand">
+      <img src="./assets/happy-burger-logo.png" alt="Happy Burger Colônia">
+      <div>
+        <h1>Happy Burger Colônia</h1>
+        <p>Painel da loja</p>
+      </div>
+    </div>
+    <div class="kyro-signature" aria-label="Kyro Automações empresariais">
+      <img src="./assets/kyro-logo-white-panel.png" alt="Kyro Automações empresariais">
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <section class="auth-panel" id="authPanel">
+      <div>
+        <p class="eyebrow">Acesso</p>
+        <h2>Código do painel</h2>
+      </div>
+      <form class="auth-form" id="authForm">
+        <label class="field">
+          <span>Código</span>
+          <input id="adminToken" type="password" autocomplete="current-password" placeholder="Código da loja" required>
+        </label>
+        <button class="primary-action" type="submit">Entrar</button>
+      </form>
+      <p class="form-message" id="authMessage" role="alert"></p>
+    </section>
+
+    <section class="admin-panel" id="adminPanel" hidden>
+      <section class="admin-toolbar">
+        <div>
+          <p class="eyebrow">Operação ao vivo</p>
+          <h2>Pedidos da loja</h2>
+          <span id="lastUpdated">Aguardando atualização</span>
+          <span class="operation-message" id="operationMessage" role="status"></span>
+        </div>
+        <div class="toolbar-actions">
+          <button class="secondary-action" id="soundToggle" type="button" aria-pressed="false">Som desligado</button>
+          <button class="secondary-action" id="refreshOrders" type="button">Atualizar</button>
+          <button class="secondary-action" id="logoutAdmin" type="button">Sair</button>
+        </div>
+      </section>
+
+      <section class="summary-grid" aria-label="Resumo dos pedidos">
+        <article class="summary-tile">
+          <span>Novos</span>
+          <strong id="newCount">0</strong>
+        </article>
+        <article class="summary-tile">
+          <span>Em preparo</span>
+          <strong id="preparingCount">0</strong>
+        </article>
+        <article class="summary-tile">
+          <span>Entrega</span>
+          <strong id="deliveryCount">0</strong>
+        </article>
+        <article class="summary-tile">
+          <span>A imprimir</span>
+          <strong id="printCount">0</strong>
+        </article>
+        <article class="summary-tile">
+          <span>Total em entregas</span>
+          <strong id="openTotal">R$ 0,00</strong>
+        </article>
+      </section>
+
+      <nav class="admin-filters" aria-label="Filtro de pedidos">
+        <button class="is-active" type="button" data-filter="active">Abertos</button>
+        <button type="button" data-filter="delivery">Entrega</button>
+        <button type="button" data-filter="canceled">Cancelados</button>
+        <button type="button" data-filter="all">Todos</button>
+      </nav>
+
+      <section class="admin-workspace">
+        <section class="orders-board">
+          <div class="orders-head">
+            <div>
+              <h3 id="ordersTitle">Pedidos abertos</h3>
+              <span>Fila principal</span>
+            </div>
+            <strong id="visibleCount">0 pedidos</strong>
+          </div>
+          <div class="orders-list empty-state" id="ordersList">Nenhum pedido encontrado.</div>
+        </section>
+
+        <aside class="ops-column" aria-label="Controle da operação">
+          <section class="ops-card">
+            <h3>Prazos ao cliente</h3>
+            <form class="eta-settings-form" id="etaSettingsForm">
+              <div class="eta-field-grid">
+                <label class="field">
+                  <span>Retirada (minutos)</span>
+                  <input id="pickupEtaMinutes" type="number" inputmode="numeric" min="5" max="240" step="5" required>
+                </label>
+                <label class="field">
+                  <span>Entrega (minutos)</span>
+                  <input id="deliveryEtaMinutes" type="number" inputmode="numeric" min="5" max="240" step="5" required>
+                </label>
+              </div>
+              <div class="eta-save-row">
+                <p class="eta-settings-message" id="etaSettingsMessage" role="status"></p>
+                <button class="primary-action" type="submit">Salvar prazos</button>
+              </div>
+            </form>
+          </section>
+
+        </aside>
+      </section>
+    </section>
+  </main>
+
+  <footer class="admin-footer">
+    <div class="admin-footer-inner">
+      <div class="footer-brand">
+        <img src="./assets/kyro-logo-white-panel.png" alt="Kyro Automações empresariais">
+      </div>
+      <div class="footer-support">
+        <span class="footer-support-title">Suporte Kyro</span>
+        <div class="footer-contact-list">
+          <a href="mailto:kyroatendimentos@gmail.com">
+            <span>E-mail</span>
+            <strong>kyroatendimentos@gmail.com</strong>
+          </a>
+          <i aria-hidden="true"></i>
+          <a href="tel:+5532999074876">
+            <span>Atendimento</span>
+            <strong>+55 (32) 99907-4876</strong>
+          </a>
+        </div>
+      </div>
+      <div class="footer-product">
+        <strong>Happy Burger Colônia</strong>
+        <span>Painel administrativo</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./config.js?v=20260901"></script>
+  <script src="./admin.js?v=20260901-reimpressao"></script>
+</body>
+</html>
