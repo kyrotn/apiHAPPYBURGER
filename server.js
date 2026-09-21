@@ -9,13 +9,14 @@ const PUBLIC_DIR = path.join(ROOT, "public");
 const DATA_DIR = path.join(ROOT, "data");
 const ORDERS_FILE = path.join(DATA_DIR, "orders.json");
 const STORE_SETTINGS_FILE = path.join(DATA_DIR, "store-settings.json");
+const MENU_FILE = path.join(DATA_DIR, "menu.json");
 
 const rawStoreConfig = readJson(path.join(ROOT, "config", "store.json"));
 const storeConfig = {
   ...rawStoreConfig,
   storeToken: process.env.STORE_TOKEN || rawStoreConfig.storeToken
 };
-const menuConfig = readJson(path.join(ROOT, "config", "menu.json"));
+const defaultMenuConfig = readJson(path.join(ROOT, "config", "menu.json"));
 const supabaseConfig = {
   url: String(process.env.SUPABASE_URL || "").replace(/\/$/, ""),
   serviceRoleKey: String(process.env.SUPABASE_SERVICE_ROLE_KEY || ""),
@@ -77,11 +78,35 @@ const server = http.createServer(async (req, res) => {
     }
 
     if (requestUrl.pathname === "/api/config" && req.method === "GET") {
-      const operationalSettings = await readStoreSettings();
+      const [operationalSettings, menu] = await Promise.all([
+        readStoreSettings(),
+        readMenu()
+      ]);
       sendJson(res, 200, {
         store: { ...publicStoreConfig(), ...operationalSettings },
-        menu: menuConfig
+        menu: publicMenuConfig(menu)
       });
+      return;
+    }
+
+    if (requestUrl.pathname === "/api/menu" && req.method === "GET") {
+      if (!isAuthorized(req, requestUrl)) {
+        sendJson(res, 401, { error: "Token da loja inválido." });
+        return;
+      }
+
+      sendJson(res, 200, { menu: await readMenu() });
+      return;
+    }
+
+    if (requestUrl.pathname === "/api/menu" && req.method === "POST") {
+      if (!isAuthorized(req, requestUrl)) {
+        sendJson(res, 401, { error: "Token da loja inválido." });
+        return;
+      }
+
+      const menu = await writeMenu(await readRequestBody(req));
+      sendJson(res, 200, { ok: true, menu });
       return;
     }
 
@@ -224,6 +249,10 @@ function ensureDataFile() {
   if (!fs.existsSync(STORE_SETTINGS_FILE)) {
     fs.writeFileSync(STORE_SETTINGS_FILE, `${JSON.stringify(defaultStoreSettings(), null, 2)}\n`, "utf8");
   }
+
+  if (!fs.existsSync(MENU_FILE)) {
+    fs.writeFileSync(MENU_FILE, `${JSON.stringify(normalizeMenu(defaultMenuConfig), null, 2)}\n`, "utf8");
+  }
 }
 
 function defaultStoreSettings() {
@@ -282,6 +311,127 @@ async function writeStoreSettings(settings) {
 
   ensureDataFile();
   fs.writeFileSync(STORE_SETTINGS_FILE, `${JSON.stringify(normalized, null, 2)}\n`, "utf8");
+}
+
+async function readMenu() {
+  if (useSupabase) {
+    try {
+      const rows = await supabaseRequest(`/${encodeURIComponent(supabaseConfig.settingsTable)}?id=eq.menu&select=settings&limit=1`);
+      return normalizeMenu(rows?.[0]?.settings || defaultMenuConfig);
+    } catch (error) {
+      console.warn(`Cardápio online indisponível: ${error.message}`);
+      return normalizeMenu(defaultMenuConfig);
+    }
+  }
+
+  ensureDataFile();
+  return normalizeMenu(readJson(MENU_FILE));
+}
+
+async function writeMenu(input) {
+  const menu = normalizeMenu(input);
+
+  if (useSupabase) {
+    await supabaseRequest(`/${encodeURIComponent(supabaseConfig.settingsTable)}`, {
+      method: "POST",
+      headers: {
+        Prefer: "resolution=merge-duplicates,return=minimal"
+      },
+      body: JSON.stringify({
+        id: "menu",
+        settings: menu,
+        updated_at: new Date().toISOString()
+      })
+    });
+    return menu;
+  }
+
+  ensureDataFile();
+  fs.writeFileSync(MENU_FILE, `${JSON.stringify(menu, null, 2)}\n`, "utf8");
+  return menu;
+}
+
+function normalizeMenu(input = {}) {
+  if (!Array.isArray(input.categories)) {
+    throw Object.assign(new Error("Cardápio inválido: informe as categorias."), { statusCode: 400 });
+  }
+
+  const usedCategoryIds = new Set();
+  const usedItemIds = new Set();
+  const categories = input.categories.slice(0, 30).map((category, categoryIndex) => {
+    const name = cleanText(category?.name, 80);
+    if (!name) {
+      throw Object.assign(new Error(`Informe o nome da categoria ${categoryIndex + 1}.`), { statusCode: 400 });
+    }
+
+    const id = uniqueMenuId(category?.id || name, `categoria-${categoryIndex + 1}`, usedCategoryIds);
+    const rawItems = Array.isArray(category?.items) ? category.items : [];
+    const items = rawItems.slice(0, 300).map((item, itemIndex) => {
+      const itemName = cleanText(item?.name, 120);
+      const price = Number(item?.price);
+
+      if (!itemName) {
+        throw Object.assign(new Error(`Informe o nome do produto ${itemIndex + 1} em ${name}.`), { statusCode: 400 });
+      }
+      if (!Number.isFinite(price) || price < 0 || price > 9999) {
+        throw Object.assign(new Error(`Informe um preço válido para ${itemName}.`), { statusCode: 400 });
+      }
+
+      return {
+        id: uniqueMenuId(item?.id || itemName, `produto-${categoryIndex + 1}-${itemIndex + 1}`, usedItemIds),
+        name: itemName,
+        description: cleanText(item?.description, 500),
+        price: roundMoney(price),
+        available: item?.available !== false
+      };
+    });
+
+    return {
+      id,
+      name,
+      enabled: category?.enabled !== false,
+      items
+    };
+  });
+
+  if (categories.length === 0) {
+    throw Object.assign(new Error("O cardápio precisa ter pelo menos uma categoria."), { statusCode: 400 });
+  }
+
+  return { categories };
+}
+
+function uniqueMenuId(value, fallback, usedIds) {
+  const normalized = String(value || fallback)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80) || fallback;
+  let candidate = normalized;
+  let suffix = 2;
+
+  while (usedIds.has(candidate)) {
+    candidate = `${normalized}-${suffix}`;
+    suffix += 1;
+  }
+
+  usedIds.add(candidate);
+  return candidate;
+}
+
+function publicMenuConfig(menu) {
+  return {
+    categories: menu.categories
+      .filter((category) => category.enabled !== false)
+      .map((category) => ({
+        id: category.id,
+        name: category.name,
+        items: category.items.filter((item) => item.available !== false)
+      }))
+      .filter((category) => category.items.length > 0)
+  };
 }
 
 async function readOrders() {
@@ -456,7 +606,10 @@ function setCorsHeaders(res) {
 }
 
 function sendJson(res, statusCode, payload) {
-  res.writeHead(statusCode, { "Content-Type": "application/json; charset=utf-8" });
+  res.writeHead(statusCode, {
+    "Content-Type": "application/json; charset=utf-8",
+    "Cache-Control": "no-store"
+  });
   res.end(JSON.stringify(payload));
 }
 
@@ -530,13 +683,13 @@ function prepareOrderForPrintAgent(order) {
 }
 
 async function createOrder(payload) {
-  const orders = await readOrders();
+  const [orders, menu] = await Promise.all([readOrders(), readMenu()]);
   const sequence = getNextSequence(orders);
   const operationalSettings = await readStoreSettings();
   const fulfillment = normalizeFulfillment(payload.fulfillment || {}, operationalSettings);
   const customer = normalizeCustomer(payload.customer || {}, fulfillment);
   const payment = normalizePayment(payload.payment || {});
-  const calculated = calculateCart(payload.cart || [], fulfillment);
+  const calculated = calculateCart(payload.cart || [], fulfillment, menu);
   const now = new Date().toISOString();
 
   const order = {
@@ -660,13 +813,13 @@ function paymentLabel(type) {
   return "Cartão";
 }
 
-function calculateCart(cart, fulfillment) {
+function calculateCart(cart, fulfillment, menu) {
   if (!Array.isArray(cart) || cart.length === 0) {
     throw Object.assign(new Error("Adicione pelo menos um item ao pedido."), { statusCode: 400 });
   }
 
   const items = cart.map((cartItem) => {
-    const menuItem = findMenuItem(cartItem.itemId);
+    const menuItem = findMenuItem(cartItem.itemId, menu);
     if (!menuItem) {
       throw Object.assign(new Error("Item do cardápio não encontrado."), { statusCode: 400 });
     }
@@ -699,9 +852,10 @@ function calculateCart(cart, fulfillment) {
   };
 }
 
-function findMenuItem(itemId) {
-  for (const category of menuConfig.categories) {
-    const item = category.items.find((entry) => entry.id === itemId);
+function findMenuItem(itemId, menu) {
+  for (const category of menu.categories) {
+    if (category.enabled === false) continue;
+    const item = category.items.find((entry) => entry.id === itemId && entry.available !== false);
     if (item) return item;
   }
 
